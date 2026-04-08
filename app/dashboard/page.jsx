@@ -17,7 +17,7 @@ export default function MemberDashboard() {
   }, [fetchOpenTasks, fetchMyTasks, startPolling]);
 
   return (
-    <main className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0c]">
+    <main className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white">
       <Navbar />
 
       <div className="max-w-7xl mx-auto space-y-16">
@@ -25,20 +25,20 @@ export default function MemberDashboard() {
         <section>
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
-                <LayoutGrid className="text-indigo-400 w-5 h-5" />
+              <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center border border-gray-200">
+                <LayoutGrid className="text-black w-5 h-5" />
               </div>
-              <h2 className="text-2xl font-bold text-white tracking-tight">Available Tasks</h2>
+              <h2 className="text-2xl font-bold text-black tracking-tight">Available Tasks</h2>
             </div>
-            <div className="flex items-center gap-2 text-white/30 text-xs font-semibold uppercase tracking-widest glass-pill px-3 py-1.5 rounded-full">
-              <RefreshCcw className="w-3 h-3 animate-spin-slow" />
+            <div className="flex items-center gap-2 text-gray-500 text-xs font-semibold uppercase tracking-widest bw-pill px-3 py-1.5 rounded-full">
+              <RefreshCcw className="text-gray-500 w-3 h-3 animate-spin-slow" />
               Live Updates
             </div>
           </div>
 
           {openTasks.length === 0 ? (
-            <div className="glass-card rounded-[2rem] p-12 text-center border-dashed border-white/10">
-              <p className="text-white/30 font-medium">No tasks available at the moment. Check back soon!</p>
+            <div className="bw-card rounded-[2rem] p-12 text-center border-dashed border-gray-200">
+              <p className="text-gray-500 font-medium">No tasks available at the moment. Check back soon!</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -52,15 +52,15 @@ export default function MemberDashboard() {
         {/* My Tasks Section */}
         <section>
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
-              <CheckCircle className="text-emerald-400 w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center border border-gray-200">
+              <CheckCircle className="text-black w-5 h-5" />
             </div>
-            <h2 className="text-2xl font-bold text-white tracking-tight">My Claimed Tasks</h2>
+            <h2 className="text-2xl font-bold text-black tracking-tight">My Claimed Tasks</h2>
           </div>
 
           {myTasks.length === 0 ? (
-            <div className="glass-card rounded-[2rem] p-12 text-center border-dashed border-white/10">
-              <p className="text-white/30 font-medium">You haven't claimed any tasks yet.</p>
+            <div className="bw-card rounded-[2rem] p-12 text-center border-dashed border-gray-200">
+              <p className="text-gray-500 font-medium">You haven't claimed any tasks yet.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

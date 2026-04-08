@@ -26,39 +26,36 @@ export default function TaskCard({ task, variant = 'available' }) {
   };
 
   const statusColors = {
-    open: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20',
-    claimed: 'text-amber-400 bg-amber-400/10 border-amber-400/20',
-    done: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20',
+    open: 'text-gray-700 bg-gray-100 border-gray-200',
+    claimed: 'text-gray-900 bg-gray-200 border-gray-300',
+    done: 'text-black bg-gray-300 border-gray-400',
   };
 
   return (
-    <div className="glass-card rounded-[2rem] p-6 transition-all duration-300 hover:shadow-indigo-500/10 group relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 blur-[60px] rounded-full -mr-16 -mt-16 group-hover:bg-indigo-500/20 transition-all"></div>
-      
+    <div className="bw-card p-6 transition-all duration-300 hover:shadow-lg group relative overflow-hidden">
       <div className="flex justify-between items-start mb-4 relative z-10">
         <div className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${statusColors[task.status]}`}>
           {task.status}
         </div>
-        <div className="flex items-center gap-1.5 text-white/30 text-xs">
+        <div className="flex items-center gap-1.5 text-gray-500 text-xs">
           <Clock className="w-3.5 h-3.5" />
           {new Date(task.createdAt).toLocaleDateString()}
         </div>
       </div>
 
-      <h3 className="text-xl font-bold text-white mb-2 line-clamp-1 group-hover:text-indigo-400 transition-colors">
+      <h3 className="text-xl font-bold text-black mb-2 line-clamp-1 group-hover:text-gray-700 transition-colors">
         {task.title}
       </h3>
-      <p className="text-white/50 text-sm leading-relaxed mb-6 line-clamp-2">
+      <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-2">
         {task.description}
       </p>
 
-      <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
+      <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
         {variant === 'available' && (
           <button
             onClick={handleClaim}
             disabled={isProcessing}
-            className="w-full glow-button premium-gradient text-white font-bold py-3 rounded-2xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
+            className="w-full bw-button text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
           >
             {isProcessing ? 'Processing...' : (
               <>
@@ -73,7 +70,7 @@ export default function TaskCard({ task, variant = 'available' }) {
           <button
             onClick={handleDone}
             disabled={isProcessing}
-            className="w-full glow-button bg-white text-black font-bold py-3 rounded-2xl flex items-center justify-center gap-2 hover:bg-neutral-200 transition-colors disabled:opacity-50"
+            className="w-full bw-button font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
           >
             {isProcessing ? 'Completing...' : (
               <>
@@ -86,7 +83,7 @@ export default function TaskCard({ task, variant = 'available' }) {
 
         {variant === 'admin' && (
           <div className="flex flex-col gap-1 mt-2">
-            <div className="flex items-center gap-2 text-white/60 text-sm font-medium">
+            <div className="flex items-center gap-2 text-gray-500 text-sm font-medium">
               <UserIcon className="w-4 h-4" />
               {task.status === 'open' && 'Not Accepted'}
               {task.status === 'claimed' && `Accepted by ${task.claimedBy?.name || 'Unknown'}`}
@@ -97,7 +94,7 @@ export default function TaskCard({ task, variant = 'available' }) {
       </div>
 
       {error && (
-        <div className="mt-3 text-red-400 text-xs font-medium text-center bg-red-400/10 py-2 rounded-lg border border-red-400/20">
+        <div className="mt-3 text-red-700 text-xs font-medium text-center bg-red-50 py-2 rounded-lg border border-red-200">
           {error}
         </div>
       )}

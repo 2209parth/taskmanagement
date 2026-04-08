@@ -31,7 +31,7 @@ export default function AdminDashboard() {
   const doneTasks = adminTasks.filter(t => t.status === 'done').length;
 
   return (
-    <main className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a0c]">
+    <main className="min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-white">
       <Navbar />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -39,42 +39,42 @@ export default function AdminDashboard() {
         {/* Left Column: Stats & Create Form */}
         <div className="lg:col-span-4 space-y-8">
           {/* Stats Bar */}
-          <div className="glass-card rounded-[2.5rem] p-8 border border-white/10">
+          <div className="bw-card rounded-[2.5rem] p-8 border border-gray-200">
             <div className="flex items-center gap-3 mb-6">
-              <BarChart3 className="text-indigo-400 w-5 h-5" />
-              <h2 className="text-xl font-bold text-white tracking-tight">System Overview</h2>
+              <BarChart3 className="text-black w-5 h-5" />
+              <h2 className="text-xl font-bold text-black tracking-tight">System Overview</h2>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="stat-card rounded-2xl p-4">
-                <p className="text-white/30 text-[10px] uppercase font-bold tracking-widest mb-1">Total</p>
-                <p className="text-2xl font-bold text-white">{totalTasks}</p>
+                <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-1">Total</p>
+                <p className="text-2xl font-bold text-black">{totalTasks}</p>
               </div>
-              <div className="bg-emerald-400/5 rounded-2xl p-4 border border-emerald-400/10">
-                <p className="text-emerald-400/40 text-[10px] uppercase font-bold tracking-widest mb-1">Open</p>
-                <p className="text-2xl font-bold text-emerald-400">{openTasks}</p>
+              <div className="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-1">Open</p>
+                <p className="text-2xl font-bold text-black">{openTasks}</p>
               </div>
-              <div className="bg-amber-400/5 rounded-2xl p-4 border border-amber-400/10">
-                <p className="text-amber-400/40 text-[10px] uppercase font-bold tracking-widest mb-1">Active</p>
-                <p className="text-2xl font-bold text-amber-400">{claimedTasks}</p>
+              <div className="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-1">Active</p>
+                <p className="text-2xl font-bold text-black">{claimedTasks}</p>
               </div>
-              <div className="bg-indigo-400/5 rounded-2xl p-4 border border-indigo-400/10">
-                <p className="text-indigo-400/40 text-[10px] uppercase font-bold tracking-widest mb-1">Done</p>
-                <p className="text-2xl font-bold text-indigo-400">{doneTasks}</p>
+              <div className="bg-gray-50 rounded-2xl p-4 border border-gray-200">
+                <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest mb-1">Done</p>
+                <p className="text-2xl font-bold text-black">{doneTasks}</p>
               </div>
             </div>
           </div>
 
           {/* Create Task Form */}
-          <div className="glass-card rounded-[2.5rem] p-8 border border-white/10">
+          <div className="bw-card rounded-[2.5rem] p-8 border border-gray-200">
             <div className="flex items-center gap-3 mb-6">
-              <Plus className="text-white w-5 h-5" />
-              <h2 className="text-xl font-bold text-white tracking-tight">Create New Task</h2>
+              <Plus className="text-black w-5 h-5" />
+              <h2 className="text-xl font-bold text-black tracking-tight">Create New Task</h2>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
                 placeholder="Task Title"
-                className="w-full glass-input rounded-2xl py-4 px-5 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/40 transition-all text-sm"
+                className="w-full bw-input rounded-xl py-4 px-5 text-black focus:outline-none focus:ring-2 focus:ring-black transition-all text-sm"
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
                 required
@@ -82,7 +82,7 @@ export default function AdminDashboard() {
               <textarea
                 placeholder="Task Description"
                 rows="4"
-                className="w-full glass-input rounded-2xl py-4 px-5 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/40 transition-all text-sm resize-none"
+                className="w-full bw-input rounded-xl py-4 px-5 text-black focus:outline-none focus:ring-2 focus:ring-black transition-all text-sm resize-none"
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
                 required
@@ -90,7 +90,7 @@ export default function AdminDashboard() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full glow-button premium-gradient text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 uppercase tracking-widest text-xs"
+                className="w-full bw-button text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 uppercase tracking-widest text-xs"
               >
                 {isSubmitting ? 'Creating...' : (
                   <>
@@ -106,15 +106,15 @@ export default function AdminDashboard() {
         {/* Right Column: All Tasks List */}
         <div className="lg:col-span-8">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
-              <ListTodo className="text-white/60 w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center border border-gray-200">
+              <ListTodo className="text-gray-500 w-5 h-5" />
             </div>
-            <h2 className="text-2xl font-bold text-white tracking-tight">Master Task List</h2>
+            <h2 className="text-2xl font-bold text-black tracking-tight">Master Task List</h2>
           </div>
 
           {adminTasks.length === 0 ? (
-            <div className="glass-card rounded-[2.5rem] p-20 text-center border-dashed border-white/10">
-              <p className="text-white/20 font-bold uppercase tracking-widest text-sm">No tasks created yet</p>
+            <div className="bw-card rounded-[2.5rem] p-20 text-center border-dashed border-gray-200">
+              <p className="text-gray-400 font-bold uppercase tracking-widest text-sm">No tasks created yet</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
